@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professores</title>
+</head>
+<body>
+    <div>
+        <a href="/index.html">Retornar ao Índice</a>
+        {% if Professor.__len__() == 0 %}
+        <h2>Não há Professores Registrados!</h2>
+        {% endif %}
+        <table border='1'>
+            <thead>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Disciplina</th>
+            </thead>
+            <tbody>
+                {% for prof in Professor %}
+                <tr>
+                    <td>{{prof['id']}}</td>
+                    <td>{{prof['nome']}}</td>
+                    <td>{{prof['idade']}}</td>
+                    <td>{{prof['disciplina']}}</td>
+                    <td><a href="Professor/editar/{{prof['id']}}">Editar</a></td>
+                    <td><a href="Professor/remover/{{prof['id']}}">Apagar</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="formProfessor.html">Adicionar novo Registro</a>
+    </div>
+</body>
+</html>
