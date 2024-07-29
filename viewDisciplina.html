@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disciplinas</title>
+</head>
+<body>
+    <div>
+        <a href="/index.html">Retornar ao Índice</a>
+        {% if Disciplina.__len__() == 0 %}
+        <h2>Não há Disciplinas Registradas!</h2>
+        {% endif %}
+        <table border='1'>
+            <thead>
+                <th>Nome</th>
+            </thead>
+            <tbody>
+                {% for disc in Disciplina %}
+                <tr>
+                    <td>{{disc['nome']}}</td>
+                    <td><a href="Disciplina/editar/{{disc['id']}}">Editar</a></td>
+                    <td><a href="Disciplina/remover/{{disc['id']}}">Apagar</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="formDisciplina.html">Adicionar novo Registro</a>
+    </div>
+</body>
+</html>
