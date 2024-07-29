@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turmas</title>
+</head>
+<body>
+    <div>
+        <a href="/index.html">Retornar ao Índice</a>
+        {% if Turma.__len__() == 0 %}
+        <h2>Não há Turmas Registradas!</h2>
+        {% endif %}
+        <table border='1'>
+            <thead>
+                <th>Nome</th>
+            </thead>
+            <tbody>
+                {% for turma in Turma %}
+                <tr>
+                    <td>{{turma['nome']}}</td>
+                    <td><a href="Turma/editar/{{turma['id']}}">Editar</a></td>
+                    <td><a href="Turma/remover/{{turma['id']}}">Apagar</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="formTurma.html">Adicionar novo Registro</a>
+    </div>
+</body>
+</html>
