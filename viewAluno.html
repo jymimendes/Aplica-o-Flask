@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunos</title>
+</head>
+<body>
+    <div>
+        <a href="/index.html">Retornar ao Índice</a>
+        {% if Aluno | length == 0 %}
+        <h2>Não há Alunos Registrados!</h2>
+        {% endif %}
+        <table border='1'>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Matrícula</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for aluno in Aluno %}
+                <tr>
+                    <td>{{aluno['nome']}}</td>
+                    <td>{{aluno['idade']}}</td>
+                    <td>{{aluno['matricula']}}</td>
+                    <td><a href="Aluno/editar/{{aluno['id']}}">Editar</a></td>
+                    <td><a href="Aluno/remover/{{aluno['id']}}">Apagar</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="formAluno.html">Adicionar novo Registro</a>
+    </div>
+</body>
+</html>
